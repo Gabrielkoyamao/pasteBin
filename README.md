@@ -2,10 +2,10 @@
 > Mongodb
 > Node.js
 
-## MongoDB
+### MongoDB
 > * Verificar se esta rodando o servidor mongo na sua maquina(digitando mongo no cmd ou terminal)
 
-## Node.js
+### Node.js
 > * Verificar se esta tudo ok, digitando "node" no cmd ou terminal
 
 Feito isso faça o download do projeto, abra o terminal na pasta e execute o comando

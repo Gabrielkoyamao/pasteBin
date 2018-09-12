@@ -1,6 +1,6 @@
 # Requisitos necessários para rodar
-  > Mongodb
-  > Node.js
+  > * Mongodb
+  > * Node.js
 
 ### MongoDB
   > * Verificar se esta rodando o servidor mongo na sua maquina(digitando mongo no cmd ou terminal)

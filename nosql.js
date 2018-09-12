@@ -16,7 +16,6 @@ module.exports = {
                 var db = client.db('pastebin');
                 callback( db )
             }
-
         })
     }
 }

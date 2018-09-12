@@ -3,7 +3,7 @@
   > * Node.js
 
 ### MongoDB
-  > * Verificar se esta rodando o servidor mongo na sua maquina(digitando mongo no cmd ou terminal)
+  > * Verificar se esta rodando o servidor mongo na sua maquina
 
 ### Node.js
   > * Verificar se esta tudo ok, digitando "node" no cmd ou terminal

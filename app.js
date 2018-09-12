@@ -16,10 +16,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 
-// var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
 
-// app.listen(port, function() {
-// 	console.log('I am running on http://localhost:' + port);
-// });
+app.listen(port, function() {
+	console.log('I am running on http://localhost:' + port);
+});
 
 module.exports = app;

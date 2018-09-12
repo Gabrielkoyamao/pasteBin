@@ -8,12 +8,35 @@ html
 
 	body
 
-		h1.display-4.ml-2 PasteBin
+		include navbar.pug 
 
-		.col-md-12
-			h3#titulo.mt-5 #{titulo}
-			textarea.col-md-12#doc(cols="30", rows="10", type="text") #{doc}
-			button.btn.btn-sm.btn-muted#new Criar outro
+		.container.mt-5
+
+			.row
+				.col-md-6
+					.card
+					.card-header
+						| Usuários
+					.card-body
+						h5.card-title GRafico aqui 
+						p.card-text 10 milhões de usuários.
+
+				.col-md-6
+					.card
+					.card-header
+						| Inscricoes
+					.card-body
+						h5.card-title GRafico aqui 
+						p.card-text 10 milhões de escritas/mês.
+
+				.col-md-6
+					.card
+					.card-header
+						| Lidas
+					.card-body
+						h5.card-title GRafico aqui 
+						p.card-text 100 milhões de lidas/mês.
+						p.card-text 10:1 read to write ratio.
 
 	script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
@@ -22,7 +45,3 @@ html
 
 
 	script.
-
-		$(document).on('click', '#new', function(){
-			location.assign("/");
-		})

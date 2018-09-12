@@ -8,6 +8,8 @@ html
 
 	body
 		
+		include navbar.pug
+		
 		h1.display-4.ml-2 PasteBin
 
 		.col-md-12
@@ -79,3 +81,12 @@ html
 				$("#expira").addClass("invisible")
 			}
 		}
+
+//- - Tráfico não é uniformemente distribuido
+//- - Visitas a um link único devem ser rápidas
+//- - Documentos são apenas texto.
+//- - _Analytics_ não necessitam ser em tempo real.
+//- - 10 milhões de usuários.
+//- - 10 milhões de escritas/mês.
+//- - 100 milhões de lidas/mês.
+//- - 10:1 read to write ratio.

@@ -48,7 +48,12 @@ router.all('/save', function (req, res, next) {
 
 
 
+
 });
+
+router.all('/analytics', function(req, res){
+	res.render("analytics")
+})
 
 router.all('/:link', function(req, res){
 	
@@ -71,5 +76,7 @@ router.all('/:link', function(req, res){
 		})
 	})
 })
+
+
 
 module.exports = router;

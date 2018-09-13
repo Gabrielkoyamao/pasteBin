@@ -10,10 +10,6 @@
 
 Feito isso faça o download do projeto, abra o terminal na pasta e execute o comando
 ```
-# npm install
-```
-Depois execute
-```
 # node app.js
 ```
 ou

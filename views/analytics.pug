@@ -9,41 +9,33 @@ html
 
 		include navbar.pug 
 
-		.container.mt-5
-
+		.container.mt-5.text-center
+			
 			h1.text-center.display-4 Analiticos do site
 
-			.col-md-12
-				.card
-				.card-header
-					| Usuários
+			.card.mt-5
+				.card-header.font-weight-bold Usuários
 				.card-body
 					center
-						h5.card-title GRafico aqui 
-						p.card-text 10 milhões de usuários.
-						#usuarios(style="width:600px; height:400px;")
+						.mt-5#usuarios(style="width:600px; height:400px;")
+						//- p.card-text 10 milhões de usuários.
 
-			.col-md-12
-				.card
-				.card-header
-					| Inscricoes
+			.card.mt-5
+				.card-header.font-weight-bold
+					| Inscricões
 				.card-body
 					center
-						h5.card-title GRafico aqui 
-						p.card-text 10 milhões de escritas/mês.
-						#inscricoes(style="width:600px; height:400px;")
+						//- p.card-text 10 milhões de escritas/mês.
+						.mt-5#inscricoes(style="width:600px; height:400px;")
 
-			.col-md-12
-				.card
-				.card-header
+			.card.mt-5.mb-5
+				.card-header.font-weight-bold
 					| Lidas
 				.card-body
 					center
-						h5.card-title GRafico aqui 
-						p.card-text 100 milhões de lidas/mês.
-						p.card-text 10:1 read to write ratio.
-						#lidas(style="width:600px; height:400px;")
-
+						//- p.card-text 100 milhões de lidas/mês.
+						//- p.card-text 10:1 read to write ratio.
+						.mt-5#lidas(style="width:600px; height:400px;")
 
 	script(src="/javascripts/echarts.js")
 

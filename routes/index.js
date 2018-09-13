@@ -23,32 +23,60 @@ router.get('/', function (req, res, next) {
 	res.render('index');
 });
 
-
 router.all('/save', function (req, res, next) {
-
-	var data = req.query
-
+	
+	var dados = req.query
+	
+	// datas
+	var expiraEm = new moment()
+	
 	if (req.query.doc != "") {
+		
+		if(req.query.expiraEm == "10min"){ 
+			expiraEm.add(10, 'minutes')
+			expiraEm = expiraEm.toDate()			
+		}
+		else if(req.query.expiraEm == "1hora"){ 
+			expiraEm.add(1, 'hour')
+			expiraEm = expiraEm.toDate()
+		}
+		else if(req.query.expiraEm == "1dia"){ 
+			expiraEm.add(1, 'day')
+			expiraEm = expiraEm.toDate()			
+		}
+		else if( req.query.expiraEm == "1semana"){
+			expiraEm.add(1, 'week')
+			expiraEm = expiraEm.toDate()			
+		}
+		else if(req.query.expiraEm == "1mes"){ 
+			expiraEm.add(1, 'month')
+			expiraEm = expiraEm.toDate()
+		}
+		else if(req.query.expiraEm == "6meses"){ 
+			expiraEm.add(6, 'month')
+			expiraEm = expiraEm.toDate()
+		}
+		else if(req.query.expiraEm == "1ano"){ 
+			expiraEm.add(1, 'year')
+			expiraEm = expiraEm.toDate()
 
-		// tratar oq vem do select dps
-		var expiraEm = new moment().tz('America/Sao_Paulo').format('DD-MM-YYYY HH:mm')
+		}
+		else{ expiraEm = false }
+
+		dados.criadoEm = new moment().toDate()
+		dados.expiraEm = expiraEm
 
 		var link = hash(req.query.titulo)
-		data.link = link
-		data.criadoEm = new moment().tz('America/Sao_Paulo').format('DD-MM-YYYY HH:mm')
-
+		dados.link = link
+		
 		nosql.db(function (db) {
-			db.collection('docs').insertOne(data, function(){
-				res.json({link: data.link})
+			db.collection('docs').insertOne(dados, function(){
+				res.json({link: dados.link})
 			})
 		})
 	} else {
 		res.json({err: 1})
 	}
-
-
-
-
 });
 
 router.all('/analytics', function(req, res){
@@ -58,19 +86,29 @@ router.all('/analytics', function(req, res){
 router.all('/:link', function(req, res){
 	
 	var link = req.params.link
-
+	
+	// teste expira em 10min
+	var teste = new moment().add(20, 'minutes').toDate()
+	
 	nosql.db(function(db){
-		db.collection('docs').find({"link": link}).toArray(function(err, data){
+		db.collection('docs').find({"link": link}).toArray(function(err, dados){
 			if(err){
 				console.log(err)
 			}else{
-				if(data.length == 0){
+				if(dados.length == 0){
 					res.send('404 error</br>Link nao encontrada')
 				}else{
-					res.render('docs',{
-						doc: data[0].doc,
-						titulo: data[0].titulo
-					})
+					// validando se expirou
+					if(dados[0].criadoEm > dados[0].expiraEm && dados[0].expiraEm != false){
+					// if(teste > dados[0].expiraEm && dados[0].expiraEm != false ){
+						res.send("O link expirou")
+					}
+					else{
+						res.render('docs',{
+							doc: dados[0].doc,
+							titulo: dados[0].titulo
+						})
+					}
 				}
 			}
 		})

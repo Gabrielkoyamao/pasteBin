@@ -22,10 +22,10 @@ html
 
 			.card.mt-5
 				.card-header.font-weight-bold
-					| Inscricões
+					| Escritas
 				.card-body
 					center
-						.mt-5#inscricoes(style="width:600px; height:400px;")
+						.mt-5#escricoes(style="width:600px; height:400px;")
 						p.card-text.text-right 10 milhões de escritas/mês.
 
 			.card.mt-5.mb-5
@@ -43,7 +43,7 @@ html
 	script.
 
 		var UsuariosChart = echarts.init(document.getElementById('usuarios'));
-		var inscricoesChart = echarts.init(document.getElementById('inscricoes'));
+		var escritasChart = echarts.init(document.getElementById('escritas'));
 		var lidasChart = echarts.init(document.getElementById('lidas'));
 
 		optionUsuarios = {
@@ -84,7 +84,7 @@ html
 			]
 		};
 
-		optionInscricoes = {
+		optionEscritas = {
 			title: {
 				text: 'Analítico de Escritas/mês',
 				subtext: 'Escala de 10:1'
@@ -165,5 +165,5 @@ html
 		};
 
 		UsuariosChart.setOption(optionUsuarios);
-		inscricoesChart.setOption(optionInscricoes);
+		escritasChart.setOption(optionEscritas);
 		lidasChart.setOption(optionLidas);

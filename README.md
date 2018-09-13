@@ -8,7 +8,7 @@
 ### Node.js
   > * Verificar se esta tudo ok, digitando "node" no cmd ou terminal
 
-Feito isso faça o download do projeto, abra o terminal na pasta e execute o comando
+Feito isso faça o download do projeto, abra o terminal ou cmd dentro da pasta e execute o comando
 ```
 # node app.js
 ```
